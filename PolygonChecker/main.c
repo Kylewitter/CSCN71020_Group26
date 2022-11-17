@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <math.h>
 #include "main.h"
 #include "triangleSolver.h"
 
@@ -22,15 +22,21 @@ int main() {
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			
 			if (IsValidTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2])) //BK implementaion of valid triangle detection
-				printf("Triangle is valid");
-
+			{
+				printf("Triangle is valid\n");
+				char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+				printf_s("%s\n", result);
+				giveTriangleAngles(triangleSides);
+				break;
+			}
 			else
-				printf("Triangle is not valid");
-			break;
+			{
+				printf("Triangle is not valid\n");
+				break;
+			}
 
-			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			printf_s("%s\n", result);
-			break;
+			
+			
 		case 0:
 			continueProgram = false;
 			break;
@@ -69,4 +75,24 @@ int* getTriangleSides(int* triangleSides) {
 		scanf_s("%d", &triangleSides[i]);
 	}
 	return triangleSides;
+}
+int giveTriangleAngles(int* triangleSides) {
+	// added this function E.L
+	triangleSides[2]; // needs three 
+	float angleALength;
+	float aSquared = triangleSides[0] * triangleSides[0];
+	float bSquared = triangleSides[1] * triangleSides[1];
+	float cSquared = triangleSides[2] * triangleSides[2];
+	float BtimesC = 2 * triangleSides[1] * triangleSides[2];
+	angleALength = (bSquared + cSquared - aSquared) / BtimesC;
+	float angleA = acos(angleALength);
+	printf("Angle A is: %.2f radians\n", angleA);
+	float angleBLength;
+	float angleB;
+	float AtimesC = 2 * triangleSides[0] * triangleSides[2];
+	angleBLength = (cSquared + aSquared - bSquared) / AtimesC;
+	angleB = acos(angleBLength);
+	printf("Angle B is %.2f radians\n", angleB);
+
+
 }
