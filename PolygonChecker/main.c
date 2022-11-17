@@ -3,6 +3,7 @@
 #include <math.h>
 #include "main.h"
 #include "triangleSolver.h"
+#define PI    3.14159
 
 int side = 0;
 
@@ -93,6 +94,9 @@ int giveTriangleAngles(int* triangleSides) {
 	angleBLength = (cSquared + aSquared - bSquared) / AtimesC;
 	angleB = acos(angleBLength);
 	printf("Angle B is %.2f radians\n", angleB);
+
+	float angleC = PI - angleA - angleB;
+	printf("Angle C is: %.2f radians\n", angleC);
 
 
 }
