@@ -20,7 +20,14 @@ int main() {
 			int triangleSides[3] = { 0, 0, 0 };
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
-			if (IsValidTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]));
+			
+			if (IsValidTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2])) //BK implementaion of valid triangle detection
+				printf("Triangle is valid");
+
+			else
+				printf("Triangle is not valid");
+			break;
+
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
