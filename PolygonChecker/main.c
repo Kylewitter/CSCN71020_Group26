@@ -3,7 +3,10 @@
 #include <math.h>
 #include "main.h"
 #include "triangleSolver.h"
+
 #define PI    3.14159
+#define NUMBEROFTRIANGLESIDES 3
+#define START 0
 
 int side = 0;
 
@@ -18,7 +21,7 @@ int main() {
 		{
 		case 1:
 			printf_s("Triangle selected.\n");
-			int triangleSides[3] = { 0, 0, 0 };
+			int triangleSides[NUMBEROFTRIANGLESIDES] = { 0, 0, 0 };
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			
@@ -71,7 +74,7 @@ int printShapeMenu() {
 
 int* getTriangleSides(int* triangleSides) {
 	printf_s("Enter the three sides of the triangle: ");
-	for (int i = 0; i < 3; i++)
+	for (int i = START; i < 3; i++)
 	{
 		scanf_s("%d", &triangleSides[i]);
 	}
