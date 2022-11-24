@@ -11,3 +11,7 @@ bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d);  // e.l
 int getLengthBetweenPoints(PAIRS, PAIRS);
 
 void getFourPoints();
+
+void getRectangleArea(); // k.w
+
+void getRectanglePerimeter(); // k.w
