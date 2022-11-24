@@ -24,3 +24,27 @@ int getLengthBetweenPoints(PAIRS x, PAIRS y)
 
 	return sqrt(arg1 + arg2);
 }
+
+ PAIRS* getFourPoints()
+{
+	PAIRS coordinates[4];
+	for (int i = 0; i < 4; i++) {
+		int x;
+		printf("Please Enter x");
+		scanf_s("%d", x);
+
+		int y;
+		printf("Please Enter y");
+		scanf_s("%d", y);
+
+		coordinates[i]=CreatePair(x, y);
+	}
+	return &coordinates;
+
+
+
+
+
+
+
+}
