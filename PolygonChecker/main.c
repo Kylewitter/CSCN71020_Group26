@@ -27,7 +27,7 @@ int main() {
 			PAIRS p3 = CreatePair(scanX(), scanY());
 			PAIRS p4 = CreatePair(scanX(), scanY());
 			if (isValidRectangle(p1, p2, p3, p4))
-				
+				getRectangleArea(p1,p2,p3);
 			else
 				break;
 			
