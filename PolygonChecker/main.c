@@ -3,6 +3,7 @@
 #include <math.h>
 #include "main.h"
 #include "triangleSolver.h"
+#include "rectangleSolver.h"
 
 #define PI    3.14159
 #define NUMBEROFTRIANGLESIDES 3
@@ -19,6 +20,17 @@ int main() {
 
 		switch (shapeChoice)
 		{
+		case 2:
+			printf_s("Rectangle selected.\n"); // B.K
+			PAIRS p1 = CreatePair(scanX(), scanY());
+			PAIRS p2 = CreatePair(scanX(), scanY());
+			PAIRS p3 = CreatePair(scanX(), scanY());
+			PAIRS p4 = CreatePair(scanX(), scanY());
+			if (isValidRectangle(p1, p2, p3, p4))
+				
+			else
+				break;
+			
 		case 1:
 			printf_s("Triangle selected.\n");
 			int triangleSides[NUMBEROFTRIANGLESIDES] = { 0, 0, 0 };
@@ -61,6 +73,7 @@ void printWelcome() {
 }
 
 int printShapeMenu() {
+	printf_s("2. Rectangle\n");
 	printf_s("1. Triangle\n");
 	printf_s("0. Exit\n");
 

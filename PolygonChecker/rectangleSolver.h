@@ -6,11 +6,15 @@ typedef struct pairs {
 	int y;
 }PAIRS;
 
-bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d);  // e.l 
+bool isValidRectangle(PAIRS,PAIRS,PAIRS,PAIRS );  // e.l 
 
-int getLengthBetweenPoints(PAIRS, PAIRS);
+int getLengthBetweenPoints(PAIRS, PAIRS); // B.K
 
-void getFourPoints();
+PAIRS CreatePair(int,int); // M.B
+
+int scanX(); // e.l
+
+int scanY(); // e.l
 
 void getRectangleArea(); // k.w
 

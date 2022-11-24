@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "rectangleSolver.h"
 #include<stdio.h>
 #include<math.h>
@@ -25,30 +26,29 @@ int getLengthBetweenPoints(PAIRS x, PAIRS y)
 	return sqrt(arg1 + arg2);
 }
 
- PAIRS* getFourPoints()
+ int scanX()
 {
-	PAIRS coordinates[4];
-	for (int i = 0; i < 4; i++) {
-		int x;
-		printf("Please Enter x");
-		scanf_s("%d", x);
-
-		int y;
-		printf("Please Enter y");
-		scanf_s("%d", y);
-
-		coordinates[i]=CreatePair(x, y);
-	}
-	return &coordinates;
-
-
-
-
-
-
-
+	 int x;
+	 printf("Enter x value for point");
+	 scanf_s("%d", &x);
+	 
+	 return x;
 }
+ int scanY()
+ {
+	 int y;
+	 printf("Enter y value for point");
+	 scanf_s("%d", &y);
 
+	 return y;
+ }
+
+ PAIRS CreatePair(int x, int y)
+ {
+	 PAIRS pair;
+	 pair.x = x;
+	 pair.y = y;
+ }
  
 
  
