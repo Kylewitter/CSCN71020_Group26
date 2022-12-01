@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<math.h>
 
-bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created function
+bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created function, B.K - fixed bugs
 {
 	float lengthAB = getLengthBetweenPoints(a, b);
 	float lengthAC = getLengthBetweenPoints(a, c);
@@ -24,6 +24,12 @@ bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created funct
 					return true;
 				}
 			}
+			
+			else
+			{
+				printf("Is a valid square\n");
+				return true;
+			}
 		}
 		
 		if (lengthAD == lengthBC)
@@ -36,6 +42,12 @@ bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created funct
 					return true;
 				}
 			}
+
+			else
+			{
+				printf("Is a valid square\n");
+				return true;
+			}
 		}
 	}
 
@@ -47,16 +59,22 @@ bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created funct
 			{
 				if (((lengthAC * lengthAC) + (lengthAD * lengthAD)) == (lengthAB * lengthAB))
 				{
-					printf("Is a valid rectangle");
+					printf("Is a valid rectangle\n");
 					return true;
 				}
+			}
+
+			else
+			{
+				printf("Is a valid square\n");
+				return true;
 			}
 		}
 	}
 
 	else
 	{
-		printf("Is not a valid rectangle");
+		printf("Is not a valid rectangle\n");
 		return false;
 	}
 }
@@ -69,7 +87,7 @@ float getLengthBetweenPoints(PAIRS a, PAIRS b) // B.K
 	return (float)sqrt(arg1 + arg2);
 }
 
- int scanX() // e.l
+int scanX() // e.l
 {
 	 int x;
 	 printf("Enter x value for point: ");
@@ -77,7 +95,8 @@ float getLengthBetweenPoints(PAIRS a, PAIRS b) // B.K
 	 
 	 return x;
 }
- int scanY() // e.l
+
+int scanY() // e.l
  {
 	 int y;
 	 printf("Enter y value for point: ");
@@ -86,28 +105,56 @@ float getLengthBetweenPoints(PAIRS a, PAIRS b) // B.K
 	 return y;
  }
 
- PAIRS CreatePair(int y, int x) // M.B
- {
-	 PAIRS pair;
-	 pair.x = x;
-	 pair.y = y;
+PAIRS CreatePair(int y, int x) // M.B
+{
+	PAIRS pair;
+	pair.x = x;
+	pair.y = y;
 
-	 return pair;
- }
+	return pair;
+}
  
 
- void getRectangleArea(PAIRS p1, PAIRS p2, PAIRS p3)
- {
-	 
-	 int length = getLengthBetweenPoints(p1, p2);
-	 int width = getLengthBetweenPoints(p1, p3);
-	 int area = length * width;
-	 printf("%d", area);
+void getRectangleArea(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.K
+{
+	float lengthAB = getLengthBetweenPoints(a, b);
+	float lengthAC = getLengthBetweenPoints(a, c);
+	float lengthAD = getLengthBetweenPoints(a, d);
+	
+	if (lengthAB > lengthAC && lengthAB > lengthAD)
+	{
+		printf("The area is: %.2f\n", (lengthAC * lengthAD));
+	}
 
+	else if (lengthAC > lengthAB && lengthAC > lengthAD)
+	{
+		printf("The area is: %.2f\n", (lengthAB * lengthAD));
+	}
 
- }
+	else
+	{
+		printf("The area is: %.2f\n", (lengthAB * lengthAC));
+	}
+}
 
- int getRectanglePerimeter()
- {
+void getRectanglePerimeter(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.k
+{
+	float lengthAB = getLengthBetweenPoints(a, b);
+	float lengthAC = getLengthBetweenPoints(a, c);
+	float lengthAD = getLengthBetweenPoints(a, d);
 
- }
+	if (lengthAB > lengthAC && lengthAB > lengthAD)
+	{
+		printf("The perimeter is: %.2f\n", (lengthAC * 2 + lengthAD * 2));
+	}
+
+	else if (lengthAC > lengthAB && lengthAC > lengthAD)
+	{
+		printf("The perimeter is: %.2f\n", (lengthAB * 2 + lengthAD * 2));
+	}
+
+	else
+	{
+		printf("The perimeter is: %.2f\n", (lengthAB * 2 + lengthAC * 2));
+	}
+}

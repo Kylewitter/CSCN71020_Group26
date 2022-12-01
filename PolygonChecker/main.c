@@ -29,7 +29,10 @@ int main() {
 			PAIRS p4 = CreatePair(scanY(), scanX());
 			
 			if (isValidRectangle(p1, p2, p3, p4))
-				getRectangleArea(p1,p2,p3);
+			{
+				getRectangleArea(p1, p2, p3, p4);
+				getRectanglePerimeter(p1, p2, p3, p4);
+			}
 			
 			break;
 			

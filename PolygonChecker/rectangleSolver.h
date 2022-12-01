@@ -18,8 +18,8 @@ int scanY(); // e.l
 
 void getFourPoints();
 
-void getRectangleArea(); // k.w
+void getRectangleArea(PAIRS, PAIRS, PAIRS, PAIRS); // k.w + B.K
 
-int getRectanglePerimeter(); // k.w
+void getRectanglePerimeter(PAIRS, PAIRS, PAIRS, PAIRS); // k.w + B.K
 
 
