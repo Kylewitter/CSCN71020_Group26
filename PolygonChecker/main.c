@@ -22,14 +22,16 @@ int main() {
 		{
 		case 2:
 			printf_s("Rectangle selected.\n"); // B.K
-			PAIRS p1 = CreatePair(scanX(), scanY());
-			PAIRS p2 = CreatePair(scanX(), scanY());
-			PAIRS p3 = CreatePair(scanX(), scanY());
-			PAIRS p4 = CreatePair(scanX(), scanY());
+			
+			PAIRS p1 = CreatePair(scanY(), scanX());
+			PAIRS p2 = CreatePair(scanY(), scanX());
+			PAIRS p3 = CreatePair(scanY(), scanX());
+			PAIRS p4 = CreatePair(scanY(), scanX());
+			
 			if (isValidRectangle(p1, p2, p3, p4))
 				getRectangleArea(p1,p2,p3);
-			else
-				break;
+			
+			break;
 			
 		case 1:
 			printf_s("Triangle selected.\n");

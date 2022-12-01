@@ -5,12 +5,55 @@
 
 bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created function
 {
-	if (getLengthBetweenPoints(a, b) == getLengthBetweenPoints(c, d) && getLengthBetweenPoints(a, c) == getLengthBetweenPoints(b, d) && getLengthBetweenPoints(a, b) != getLengthBetweenPoints(a, c))
+	float lengthAB = getLengthBetweenPoints(a, b);
+	float lengthAC = getLengthBetweenPoints(a, c);
+	float lengthAD = getLengthBetweenPoints(a, d);
+	float lengthBC = getLengthBetweenPoints(b, c);
+	float lengthBD = getLengthBetweenPoints(b, d);
+	float lengthCD = getLengthBetweenPoints(c, d);
+
+	if (lengthAB == lengthCD)
 	{
-		printf("Is a valid rectangle");
-		return true;
-	}
+		if (lengthAC == lengthBD)
+		{
+			if (lengthAB != lengthAC)
+			{
+				if (((lengthAB * lengthAB) + (lengthAC * lengthAC)) == (lengthAD * lengthAD))
+				{
+					printf("Is a valid rectangle\n");
+					return true;
+				}
+			}
+		}
 		
+		if (lengthAD == lengthBC)
+		{
+			if (lengthAB != lengthAD)
+			{
+				if (((lengthAB * lengthAB) + (lengthAD * lengthAD)) == (lengthAC * lengthAC))
+				{
+					printf("Is a valid rectangle\n");
+					return true;
+				}
+			}
+		}
+	}
+
+	if (lengthAC == lengthBD)
+	{
+		if (lengthAD == lengthBC)
+		{
+			if (lengthAC != lengthAD)
+			{
+				if (((lengthAC * lengthAC) + (lengthAD * lengthAD)) == (lengthAB * lengthAB))
+				{
+					printf("Is a valid rectangle");
+					return true;
+				}
+			}
+		}
+	}
+
 	else
 	{
 		printf("Is not a valid rectangle");
@@ -18,18 +61,18 @@ bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // e.l - created funct
 	}
 }
 
-int getLengthBetweenPoints(PAIRS x, PAIRS y) // B.K
+float getLengthBetweenPoints(PAIRS a, PAIRS b) // B.K
 {
-	int arg1 = (y.x - x.x) * (y.x - x.x);
-	int arg2 = (y.y - x.y) * (y.y - x.y);
+	int arg1 = (b.x - a.x) * (b.x - a.x);
+	int arg2 = (b.y - a.y) * (b.y - a.y);
 
-	return sqrt(arg1 + arg2);
+	return (float)sqrt(arg1 + arg2);
 }
 
  int scanX() // e.l
 {
 	 int x;
-	 printf("Enter x value for point");
+	 printf("Enter x value for point: ");
 	 scanf_s("%d", &x);
 	 
 	 return x;
@@ -37,17 +80,19 @@ int getLengthBetweenPoints(PAIRS x, PAIRS y) // B.K
  int scanY() // e.l
  {
 	 int y;
-	 printf("Enter y value for point");
+	 printf("Enter y value for point: ");
 	 scanf_s("%d", &y);
 
 	 return y;
  }
 
- PAIRS CreatePair(int x, int y) // M.B
+ PAIRS CreatePair(int y, int x) // M.B
  {
 	 PAIRS pair;
 	 pair.x = x;
 	 pair.y = y;
+
+	 return pair;
  }
  
 
