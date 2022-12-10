@@ -6,7 +6,7 @@ typedef struct pairs {
 	int y;
 }PAIRS;
 
-bool isValidRectangle(PAIRS a, PAIRS b, PAIRS c, PAIRS d);  // e.l 
+bool isValidRectangle(PAIRS, PAIRS, PAIRS, PAIRS);  // e.l 
 
 float getLengthBetweenPoints(PAIRS, PAIRS);
 
