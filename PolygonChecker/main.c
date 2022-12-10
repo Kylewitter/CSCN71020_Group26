@@ -5,7 +5,7 @@
 #include "triangleSolver.h"
 #include "rectangleSolver.h"
 
-#define PI    3.14159
+
 #define NUMBEROFTRIANGLESIDES 3
 #define START 0
 
@@ -90,34 +90,4 @@ int printShapeMenu() {
 	return shapeChoice;
 }
 
-int* getTriangleSides(int* triangleSides) {
-	printf_s("Enter the three sides of the triangle: ");
-	for (int i = START; i < 3; i++)
-	{
-		scanf_s("%d", &triangleSides[i]);
-	}
-	return triangleSides;
-}
-int giveTriangleAngles(int* triangleSides) {
-	// added this function E.L
-	triangleSides[2]; // needs three 
-	float angleALength;
-	float aSquared = triangleSides[0] * triangleSides[0];
-	float bSquared = triangleSides[1] * triangleSides[1];
-	float cSquared = triangleSides[2] * triangleSides[2];
-	float BtimesC = 2 * triangleSides[1] * triangleSides[2];
-	angleALength = (bSquared + cSquared - aSquared) / BtimesC;
-	float angleA = acos(angleALength);
-	printf("Angle A is: %.2f radians\n", angleA);
-	float angleBLength;
-	float angleB;
-	float AtimesC = 2 * triangleSides[0] * triangleSides[2];
-	angleBLength = (cSquared + aSquared - bSquared) / AtimesC;
-	angleB = acos(angleBLength);
-	printf("Angle B is %.2f radians\n", angleB);
 
-	float angleC = PI - angleA - angleB;
-	printf("Angle C is: %.2f radians\n", angleC);
-
-
-}
