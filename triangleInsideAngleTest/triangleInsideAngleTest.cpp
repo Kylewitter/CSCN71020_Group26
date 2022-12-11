@@ -15,7 +15,7 @@ namespace triangleInsideAngleTest
 	{
 	public:
 
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(AngleTestMethod)
 		{
 			// Testing functionality of Angle A, B and C for an equilateral triangle
 			
