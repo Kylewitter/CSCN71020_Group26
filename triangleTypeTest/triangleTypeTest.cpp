@@ -11,7 +11,7 @@ namespace triangleTypeTest
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(NotATriangleTest)
 		{
 			// This is testing the analyzeTriangle Function using -1, 34, -6, // e.l
 			char* result = "";
@@ -20,7 +20,7 @@ namespace triangleTypeTest
 			
 		}
 
-		TEST_METHOD(TestMethod2)
+		TEST_METHOD(EquilateralTest)
 		{
 			// This is testing the analyzeTriangle Function using 6,6,6 // e.l
 			char* result = "";
@@ -28,7 +28,7 @@ namespace triangleTypeTest
 			Assert::AreEqual("Equilateral triangle", result);
 		}
 
-		TEST_METHOD(TestMethod3)
+		TEST_METHOD(IsoscelesTest)
 		{
 			// This is testing the analyzeTriangle Function using 2,2,3 // e.l
 			char* result = "";
@@ -36,7 +36,7 @@ namespace triangleTypeTest
 			Assert::AreEqual("Isosceles triangle", result);
 		}
 
-		TEST_METHOD(TestMethod4)
+		TEST_METHOD(ScaleneTest)
 		{
 			// This is testing the analyzeTriangle Function using 2,3,4 // e.l
 			char* result = "";
