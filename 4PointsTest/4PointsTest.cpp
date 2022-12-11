@@ -6,8 +6,8 @@ typedef struct pairs {
 	int y;
 }PAIRS;
 
-extern "C" void getRectangleArea(PAIRS, PAIRS, PAIRS, PAIRS);
-extern "C" void getRectanglePerimeter(PAIRS, PAIRS, PAIRS, PAIRS);
+extern "C" float getRectangleArea(PAIRS, PAIRS, PAIRS, PAIRS);
+extern "C" float getRectanglePerimeter(PAIRS, PAIRS, PAIRS, PAIRS);
 extern "C" float getLengthBetweenPoints(PAIRS, PAIRS);
 extern "C" bool isValidRectangle(PAIRS, PAIRS, PAIRS, PAIRS);
 
@@ -89,6 +89,64 @@ namespace My4PointsTest
 			Assert::IsFalse(result);
 			result = isValidRectangle(b, c, d, a);
 			Assert::IsFalse(result);
+		}
+
+		TEST_METHOD(getRectangleAreaFunctionality)
+		{
+			PAIRS a; //(0,0)
+			a.x = 0;
+			a.y = 0;
+
+			PAIRS b; //(15,0)
+			b.x = 15;
+			b.y = 0;
+
+			PAIRS c; //(0,15)
+			c.x = 0;
+			c.y = 15;
+
+			PAIRS d; //(15,15)
+			d.x = 15;
+			d.y = 15;
+
+			//testing method getRectangleArea = 225
+			float result = getRectangleArea(a, b, c, d);
+			Assert::AreEqual((float)225, result);
+			result = getRectangleArea(d, a, b, c);
+			Assert::AreEqual((float)225, result);
+			result = getRectangleArea(c, d, a, b);
+			Assert::AreEqual((float)225, result);
+			result = getRectangleArea(b, c, d, a);
+			Assert::AreEqual((float)225, result);
+
+		}
+		TEST_METHOD(getRectanglePerimiterFunctionality)
+		{
+			PAIRS a; //(0,0)
+			a.x = 0;
+			a.y = 0;
+
+			PAIRS b; //(15,0)
+			b.x = 15;
+			b.y = 0;
+
+			PAIRS c; //(0,15)
+			c.x = 0;
+			c.y = 15;
+
+			PAIRS d; //(15,15)
+			d.x = 15;
+			d.y = 15;
+
+			//testing method getRectanglePerimiter = 60
+			float result = getRectanglePerimeter(a, b, c, d);
+			Assert::AreEqual((float)60, result);
+			result = getRectanglePerimeter(d, a, b, c);
+			Assert::AreEqual((float)60, result);
+			result = getRectanglePerimeter(c, d, a, b);
+			Assert::AreEqual((float)60, result);
+			result = getRectanglePerimeter(b, c, d, a);
+			Assert::AreEqual((float)60, result);
 		}
 	};
 }

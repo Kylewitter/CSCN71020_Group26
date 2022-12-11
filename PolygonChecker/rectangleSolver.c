@@ -115,7 +115,7 @@ PAIRS CreatePair(int y, int x) // M.B
 }
  
 
-void getRectangleArea(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.K
+float getRectangleArea(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.K
 {
 	float lengthAB = getLengthBetweenPoints(a, b);
 	float lengthAC = getLengthBetweenPoints(a, c);
@@ -124,20 +124,23 @@ void getRectangleArea(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.K
 	if (lengthAB > lengthAC && lengthAB > lengthAD)
 	{
 		printf("The area is: %.2f\n", (lengthAC * lengthAD));
+		return (lengthAC * lengthAD);
 	}
 
 	else if (lengthAC > lengthAB && lengthAC > lengthAD)
 	{
 		printf("The area is: %.2f\n", (lengthAB * lengthAD));
+		return (lengthAB * lengthAD);
 	}
 
 	else
 	{
 		printf("The area is: %.2f\n", (lengthAB * lengthAC));
+		return (lengthAB * lengthAC);
 	}
 }
 
-void getRectanglePerimeter(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.k
+float getRectanglePerimeter(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.k
 {
 	float lengthAB = getLengthBetweenPoints(a, b);
 	float lengthAC = getLengthBetweenPoints(a, c);
@@ -146,15 +149,19 @@ void getRectanglePerimeter(PAIRS a, PAIRS b, PAIRS c, PAIRS d) // B.k
 	if (lengthAB > lengthAC && lengthAB > lengthAD)
 	{
 		printf("The perimeter is: %.2f\n", (lengthAC * 2 + lengthAD * 2));
+		return (lengthAC * 2 + lengthAD * 2);
 	}
 
 	else if (lengthAC > lengthAB && lengthAC > lengthAD)
 	{
 		printf("The perimeter is: %.2f\n", (lengthAB * 2 + lengthAD * 2));
+		return (lengthAB * 2 + lengthAD * 2);
+
 	}
 
 	else
 	{
 		printf("The perimeter is: %.2f\n", (lengthAB * 2 + lengthAC * 2));
+		return (lengthAB * 2 + lengthAC * 2);
 	}
 }
